@@ -1,12 +1,78 @@
-.btn{
-    text-decoration: none;
-    border : 3px solid aquamarine; 
-    padding: 10px;
-    border-radius: 10px;
-    color:plum;;
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(225, 225, 225);
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
-.btn:hover{
-    background-color: aquamarine;
-    color:plum;
-
+.play-list {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 900px;
+}
+.container {
+    flex: 1;
+    background-color:white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+.list {
+    flex: 1;
+    margin-right: 20px;
+}
+.add-song {
+    flex: 1;
+    margin-left: 20px;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+.song-info {
+    display: flex;
+    flex-direction: column;
+}
+.delete {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    width: 80px;
+}
+li small {
+    font-size: 0.8em;
+    color: #777;
+}
+input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
 }

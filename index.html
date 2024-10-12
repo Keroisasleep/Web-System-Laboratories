@@ -1,21 +1,52 @@
 <!DOCTYPE html>
-<html lang="en"
+<html lang="en">
 <head>
-    <meta charset="UTF-8"
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title> enz </title>
-
+    <title>My List App</title>
 </head>
 <body>
-    <header>
-        <h1 style="display:inline; margin-right: 10px;">THE GREATEST ARCHIVE</h1>
-        <nav style="display: inline;">
-            <a href="#Home" class="btn">Home</a>
-            <a href="#Books" class="btn">Books</a>
-            <a href="#About" class="btn">About</a>
-        </nav>
-    </header>
-</body>
 
+    <div class="play-list">
+        <div class="container list">
+            <h1> My Playlist</h1>
+            <input type="text" placeholder="Search here...">
+            
+            <ul id="Songlist">
+                <li>
+                    <div class="song-info">
+                        <span>The Tortured Poets Department</span>
+                        <small>Taylor Swift</small>
+                    </div>
+                    <button class="delete">Delete</button>
+                </li>
+
+                <li>
+                    <div class="song-info">
+                        <span>Fortnight</span>
+                        <small>Taylor Swift & Post Malone</small>
+                    </div>
+                    <button class="delete">Delete</button>
+                </li>
+
+                <li>
+                    <div class="song-info">
+                        <span>The Smallest Man Who Ever Lived</span>
+                        <small>Taylor Swift</small>
+                    </div>
+                    <button class="delete">Delete</button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="container add-song">
+            <h1>Add Songs</h1>
+            <input type="text" placeholder="Song:" id="song">
+            <input type="text" placeholder="Artist" id="Artist">
+            <button id="addBtn">Add</button>
+        </div>
+    </div>
+<script src="app.js"></script>
+</body>
 </html>
