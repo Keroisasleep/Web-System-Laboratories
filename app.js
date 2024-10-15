@@ -1,31 +1,70 @@
-const wrestler = document.getElementById('Song');
-const catchphrase = document.getElementById('Artist');
+const songInput = document.getElementById('song');
+const artistInput = document.getElementById('Artist');
 const addBtn = document.getElementById('addBtn');
-const ul = document.getElementById('ul');
+const songList = document.getElementById('Songlist');
+const searchInput = document.querySelector('.list input');
 
+addBtn.addEventListener('click', addSong);
 
-addBtn.addEventListener('click', ()=>{
-    const newSong = Song.value;
-    const newArtist = Artist.value;
+songList.addEventListener('click', deleteSong);
 
-    const span = document.createElement('span');
-    const small = document.createElement('small');
+searchInput.addEventListener('keyup', searchSongs);
 
-    const div = document.createElement('div');
+function addSong() {
+    const songName = songInput.value.trim();
+    const artistName = artistInput.value.trim();
 
-    span.innerHTML = newSong;
-    small.innerHTML = newArtist;
-
-    div.classList.add('wrestler-info');
-
-    div.append(span);
-    div.append(small);
+    if (songName === '' || artistName === '') {
+        alert('Please provide both song name and artist.');
+        return;
+    }
 
     const li = document.createElement('li');
-    li.append(span);
-    li.append(small);
 
-    ul.append(li);
+    const songInfoDiv = document.createElement('div');
+    songInfoDiv.classList.add('song-info');
+    const songSpan = document.createElement('span');
+    songSpan.textContent = songName;
+    const artistSmall = document.createElement('small');
+    artistSmall.textContent = artistName;
 
-    console.log(li);
-})
+    songInfoDiv.appendChild(songSpan);
+    songInfoDiv.appendChild(artistSmall);
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.classList.add('delete');
+    deleteBtn.textContent = 'Delete';
+
+    li.appendChild(songInfoDiv);
+    li.appendChild(deleteBtn);
+
+    songList.appendChild(li);
+
+    songInput.value = '';
+    artistInput.value = '';
+}
+
+function deleteSong(e) {
+    if (e.target.classList.contains('delete')) {
+        const li = e.target.parentElement;
+        songList.removeChild(li);
+    }
+}
+
+function searchSongs(e) {
+    const searchText = e.target.value.toLowerCase();
+
+
+    const songs = document.querySelectorAll('#Songlist li');
+
+    songs.forEach((song) => {
+        const songName = song.querySelector('span').textContent.toLowerCase();
+        const artistName = song.querySelector('small').textContent.toLowerCase();
+
+        if (songName.includes(searchText) || artistName.includes(searchText)) {
+            song.style.display = '';
+        } else {
+            song.style.display = 'none';
+        }
+    });
+}
